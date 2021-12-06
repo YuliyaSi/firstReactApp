@@ -1,15 +1,13 @@
 // import logo from './logo.svg';
 import './App.css';
+import Technologies from "./Technologies";
+import Header from "./Header";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-       <ul>
-         <li>Simple HTML</li>
-         <li>css</li>
-         <li>js</li>
-         <li>react</li>
-       </ul>
+    <div>
+        <Header />;
+        <Technologies />
     </div>
   );
 }
