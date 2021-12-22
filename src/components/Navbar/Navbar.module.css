@@ -1,8 +1,15 @@
 .nav {
     grid-area: n;
     background-color: greenyellow;
+    font-size: 20px;
 }
 .item {
     color: white;
-    margin: 20px;
+}
+.activeLink {
+    color: gold;
+}
+.item, .activeLink {
+    padding: 10px;
+    text-decoration: none;
 }
