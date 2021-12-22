@@ -7,19 +7,19 @@ const Navbar = () => {
         <nav className={styles.nav}>
             <div className={styles.item}>
                 <div>
-                    <p>Profile</p>
+                    <a href='Profile'>Profile</a>
                 </div>
                 <div>
-                    <p>Messages</p>
+                    <a href="Dialogs">Messages</a>
                 </div>
                 <div>
-                    <p>News</p>
+                    <a href="News">News</a>
                 </div>
                 <div>
-                    <p>Music</p>
+                    <a href="Music">Music</a>
                 </div>
                 <div>
-                    <p>Settings</p>
+                    <a href="Settings">Settings</a>
                 </div>
             </div>
         </nav>
