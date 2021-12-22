@@ -6,9 +6,10 @@
     justify-content: flex-start;
 }
 .header img {
-    width: 120px;
-    top: 25px;
-    left: 25px;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    padding: 20px;
 }
 .header div {
     text-align: center;

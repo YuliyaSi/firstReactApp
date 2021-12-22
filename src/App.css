@@ -8,3 +8,6 @@
   grid-template-rows: 120px 1fr;
   grid-template-columns: 2fr 10fr;
 }
+.app-wrapper-content {
+  grid-area: c;
+}

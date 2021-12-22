@@ -5,3 +5,11 @@
 .item {
     color: darkblue;
 }
+.add {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.add button {
+    height: 20px;
+}

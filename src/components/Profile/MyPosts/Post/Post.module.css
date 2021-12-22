@@ -2,6 +2,24 @@
     color: darkblue;
 }
 .item img {
+    width: 80px;
+    height: 60px;
+    border-radius: 30px;
+    margin: 10px;
+    float: left;
+}
+.item button {
+    margin: 5px;
     width: 50px;
-    border-radius: 10px;
+}
+span {
+    text-decoration: underline;
+}
+.message {
+
+}
+.block {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }

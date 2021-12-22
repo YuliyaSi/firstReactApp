@@ -1,13 +1,16 @@
 import React from "react";
 import s from "./Post.module.css";
 
-const Post = () => {
+const Post = (props) => {
     return (
             <div className={s.item}>
-                <img src="https://letsenhance.io/static/b8eda2f8914d307d52f725199fb0c5e6/62e7b/MainBefore.jpg" alt='123'/>
-                post
+                <div className={s.block}>
+                    <img src="https://letsenhance.io/static/b8eda2f8914d307d52f725199fb0c5e6/62e7b/MainBefore.jpg" alt='123'/>
+                    <div className={s.message}>{props.message}</div>
+                </div>
                 <div>
-                    <span>Like</span>
+                    <button>Like</button>
+                    <span>likes: {props.likesCount} </span>
                 </div>
             </div>
     )
