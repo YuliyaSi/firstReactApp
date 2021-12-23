@@ -1,0 +1,19 @@
+.logo {
+    width: 100%;
+}
+.ava img {
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+.back {
+    margin: 20px;
+}
+.back img {
+    width: 100%;
+    height: 300px;
+}
+.profileInfo {
+    padding: 10px;
+}
