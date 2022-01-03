@@ -18,8 +18,17 @@ const Navbar = () => {
             <div className={styles.item}>
                 <NavLink to="Music" className={ navData => navData.isActive ? styles.activeLink : styles.item }>Music</NavLink>
             </div>
+            <br/><br/>
             <div className={styles.item}>
                 <NavLink to="Settings" className={ navData => navData.isActive ? styles.activeLink : styles.item }>Settings</NavLink>
+            </div>
+            <div className={styles.side}>
+                <div className={styles.item}>Friends</div>
+                <div className={styles.circles}>
+                    <div className={styles.circle}></div>
+                    <div className={styles.circle}></div>
+                    <div className={styles.circle}></div>
+                </div>
             </div>
         </nav>
     )

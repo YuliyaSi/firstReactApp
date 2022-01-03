@@ -1,19 +1,17 @@
-.dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+.dialog {
+    display: flex;
+    align-items: center;
+    margin: 10px;
 }
-.dialogs_items {
-    padding: 10px;
-}
-.dialogs_items .active {
+.active {
     color: gold;
 }
-.dialog {
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+.link {
     text-decoration: none;
-}
-.messages {
-    padding: 10px;
-}
-.message {
-
+    margin-left: 10px;
 }

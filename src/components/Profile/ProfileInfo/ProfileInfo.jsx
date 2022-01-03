@@ -6,7 +6,7 @@ const ProfileInfo = () => {
         <div className={s.profileInfo}>
             <div className={s.back}>
                 <img
-                    src="https://images.pexels.com/photos/843226/pexels-photo-843226.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    src="https://images.pexels.com/photos/1054222/pexels-photo-1054222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt=""/>
             </div>
             <div className={s.logo}>
