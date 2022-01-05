@@ -25,6 +25,7 @@ let state = {
             {id: 3, message: 'How is your IT-kamasutra'},
             {id: 4, message: 'Yo'},
         ],
+        newMessageValue: 'Write a message here...'
     }
 }
 
@@ -39,8 +40,22 @@ export const addPost = () => {
     rerenderEntireTree(state)
 }
 
+export const addMessage = () => {
+    let newMessage = {
+        id: 5,
+        message: state.messagesPage.newMessageValue
+    };
+    state.messagesPage.messages.push(newMessage);
+    state.messagesPage.newMessageValue = '';
+    rerenderEntireTree(state)
+}
+
 export const updatePost = (newText) => {
     state.profilePage.newPostText = newText;
+    rerenderEntireTree(state)
+}
+export const updateMessage = (newMessage) => {
+    state.messagesPage.newMessageValue = newMessage;
     rerenderEntireTree(state)
 }
 

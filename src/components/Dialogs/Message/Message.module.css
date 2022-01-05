@@ -15,5 +15,26 @@
     padding: 10px;
 }
 .message {
-
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+.message:nth-child(odd) {
+    flex-direction: row;
+}
+.message:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.message img {
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.message span {
+    text-decoration: none;
+    border: 1px solid #07575B;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #FFF;
 }
