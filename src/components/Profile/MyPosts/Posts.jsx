@@ -5,14 +5,13 @@ import {addPostActionCreator, updatePostActionCreator} from "../../../redux/stat
 
 const Posts = (props) => {
     let postsElements = props.postsData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
-    let newPostElement = React.createRef();
 
     let onAddPost = () => {
         props.dispatch( addPostActionCreator() )
     }
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
+    let onPostChange = (e) => {
+        let text = e.target.value;
         props.dispatch( updatePostActionCreator(text) )
     }
 
@@ -22,7 +21,7 @@ const Posts = (props) => {
             <div>
                 <div>
                     <textarea rows="4"
-                              ref={newPostElement}
+                              placeholder={'Add new post'}
                               value={props.newPostText}
                               onChange={ onPostChange }/>
                 </div>

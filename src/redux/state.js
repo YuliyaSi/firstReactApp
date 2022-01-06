@@ -13,7 +13,7 @@ let store = {
                 {id: 3, message: 'Bla-bla-bla', likesCount: 10},
                 {id: 4, message: 'It\'s my second post', likesCount: 13}
             ],
-            newPostText: 'Add new post'
+            newPostText: ''
         },
         messagesPage: {
             dialogsData: [
@@ -31,7 +31,7 @@ let store = {
                 {id: 3, message: 'How is your IT-kamasutra'},
                 {id: 4, message: 'Yo'},
             ],
-            newMessageValue: 'Write a message here...'
+            newMessageValue: ''
         }
     },
     _callSubscriber () {
