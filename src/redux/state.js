@@ -28,42 +28,46 @@ let store = {
             newMessageValue: 'Write a message here...'
         }
     },
-    getState() {
-      return this._state
-    },
     _callSubscriber () {
         console.log('State changed')
     },
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.postsData.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._callSubscriber(this._state)
-    },
-    addMessage() {
-        let newMessage = {
-            id: 5,
-            message: this._state.messagesPage.newMessageValue
-        };
-        this._state.messagesPage.messages.push(newMessage);
-        this._state.messagesPage.newMessageValue = '';
-        this._callSubscriber(this._state)
-    },
-    updatePost(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state)
-    },
-    updateMessage(newMessage) {
-        this._state.messagesPage.newMessageValue = newMessage;
-        this._callSubscriber(this._state)
-    },
 
+    getState() {
+      return this._state
+    },
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+
+    dispatch(action) {
+
+       if(action.type === 'ADD-POST') {
+           let newPost = {
+               id: 5,
+               message: this._state.profilePage.newPostText,
+               likesCount: 0
+           };
+           this._state.profilePage.postsData.push(newPost)
+           this._state.profilePage.newPostText = ''
+           this._callSubscriber(this._state)
+
+       } else if(action.type === 'UPDATE-POST') {
+           this._state.profilePage.newPostText = action.newText;
+           this._callSubscriber(this._state)
+
+       } else if(action.type === 'ADD-MESSAGE') {
+           let newMessage = {
+               id: 5,
+               message: this._state.messagesPage.newMessageValue
+           };
+           this._state.messagesPage.messages.push(newMessage);
+           this._state.messagesPage.newMessageValue = '';
+           this._callSubscriber(this._state)
+
+       } else if(action.type === 'UPDATE-MESSAGE') {
+           this._state.messagesPage.newMessageValue = action.newMessage;
+           this._callSubscriber(this._state)
+       }
     }
 }
 
