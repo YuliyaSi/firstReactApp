@@ -6,11 +6,11 @@ import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={state}
+                <App store={store}
                      dispatch={store.dispatch.bind(store)}/>
             </BrowserRouter>
 
