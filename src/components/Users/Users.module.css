@@ -1,0 +1,33 @@
+.img {
+    width: 100px;
+    height: 100px;
+}
+.users {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    color: #003B46;
+}
+.user {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+.user_photo {
+    margin-right: 28px;
+}
+.user_photo button {
+    width: 100px;
+}
+.user_info {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    align-items: center;
+    justify-content: space-between;
+}
+.user_info:nth-child(even) {
+   margin-right: 20px;
+}
