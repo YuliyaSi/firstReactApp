@@ -6,7 +6,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 50px;
+    padding: 25px;
     color: #003B46;
 }
 .user {
