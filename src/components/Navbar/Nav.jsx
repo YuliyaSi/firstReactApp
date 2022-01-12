@@ -28,9 +28,9 @@ const Navbar = () => {
             <div className={styles.side}>
                 <div className={styles.item}>Friends</div>
                 <div className={styles.circles}>
-                    <div className={styles.circle}>.</div>
-                    <div className={styles.circle}>.</div>
-                    <div className={styles.circle}>.</div>
+                    <div className={styles.circle}> </div>
+                    <div className={styles.circle}> </div>
+                    <div className={styles.circle}> </div>
                 </div>
             </div>
         </nav>
