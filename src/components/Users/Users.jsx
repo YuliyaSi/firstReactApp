@@ -33,8 +33,8 @@ class Users extends React.Component {
                             <div>{u.status}</div>
                         </div>
                         <div>
-                            <div>City: {u.location?.city || 'none'}</div>
-                            <div>Country: {u.location?.country || 'none'}</div>
+                            <div>City</div>
+                            <div>Country</div>
                         </div>
                     </div>
                 </div>)
