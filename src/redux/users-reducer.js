@@ -6,7 +6,7 @@ const FOLLOW = 'FOLLOW',
 
 let initialState = {
     users: [],
-    pageSize: 15,
+    pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
 };
