@@ -1,12 +1,18 @@
 .logo {
     width: 100%;
+    margin-top: 20px;
 }
 .ava img {
     margin: 10px;
     width: 150px;
     height: 150px;
     float: left;
-    border-radius: 50%;
+
+}
+.ava div {
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-left: 200px;
 }
 .back img {
     width: 100%;
@@ -14,4 +20,15 @@
 }
 .profileInfo {
     padding: 10px;
+}
+.descriptionBlock {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    justify-content: space-between;
+    color: #003B46;
+    padding-right: 50px;
+}
+.descriptionBlock span {
+    text-decoration: none;
 }
