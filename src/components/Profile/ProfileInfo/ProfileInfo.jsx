@@ -1,6 +1,7 @@
 import React from "react";
 import s from './ProfileInfo.module.css'
 import Preloader from "../../common/preloader/Preloader";
+import pic from "../../../assets/images/168732.png"
 
 const ProfileInfo = (props) => {
 
@@ -17,7 +18,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.logo}>
                 <div className={s.ava}>
-                    <img src={props.profile.photos.large || "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"} alt=""/>
+                    <img src={props.profile.photos.large || pic} alt=""/>
                     <div>{props.profile.fullName}</div>
                 </div>
                 <div className={s.descriptionBlock}>
