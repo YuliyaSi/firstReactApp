@@ -11,6 +11,25 @@ let initialState = {
   ],
   newPostText: '',
   profile: null,
+  //     {
+  //   photos: {
+  //     large: "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"
+  //   },
+  //   fullName: "Yuliya Sidarenka",
+  //   aboutMe: "Go little RockStar",
+  //   lookingForAJob: "Yes",
+  //   lookingForAJobDescription: "The best job ever",
+  //   contacts: {
+  //     facebook: null,
+  //     website: null,
+  //     vk: null,
+  //     twitter: null,
+  //     instagram: null,
+  //     youtube: null,
+  //     github: null,
+  //     mainLink: null
+  //   },
+  // },
 };
 
 const profileReducer = (state = initialState, action) => {
