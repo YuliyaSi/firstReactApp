@@ -20,6 +20,9 @@
 .user_photo button {
     width: 100px;
 }
+.user_photo button:disabled {
+    background-color: #66A5AD;
+}
 .user_info {
     display: flex;
     flex-direction: row;
