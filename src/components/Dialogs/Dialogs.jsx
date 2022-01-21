@@ -2,10 +2,6 @@ import React from "react";
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-import {Routes, Route} from "react-router-dom";
-import Login from "../Login/Login";
-
-
 
 const Dialogs = (props) => {
 
@@ -21,15 +17,7 @@ const Dialogs = (props) => {
         props.onChangeMessage(text)
     }
 
-    if(!props.isAuth) {
-        return (
-            <Routes>
-                <Route path={'/'} element={<Login />} />
-            </Routes>
-        )
-    }
-
-        // return <Redirect to={'/login'} />
+    // return <Redirect to={'/login'} />
 
     return (
         <div>
