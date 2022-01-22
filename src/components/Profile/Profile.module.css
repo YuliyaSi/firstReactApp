@@ -14,3 +14,20 @@
     width: 100%;
     height: 300px;
 }
+div.status {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+.span {
+    text-decoration: none;
+    text-transform: none;
+    padding: 5px;
+    color: #000000;
+    font-size: medium;
+    font-family: cursive;
+    border: 1px solid #07575B;
+    border-radius: 10px;
+}
