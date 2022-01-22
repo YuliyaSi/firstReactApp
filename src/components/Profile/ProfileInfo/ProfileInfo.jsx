@@ -2,6 +2,8 @@ import React from "react";
 import s from './ProfileInfo.module.css'
 import Preloader from "../../common/preloader/Preloader";
 import pic from "../../../assets/images/168732.png"
+import ProfileStatus from "../ProfileStatus";
+
 
 const ProfileInfo = (props) => {
 
@@ -19,7 +21,9 @@ const ProfileInfo = (props) => {
             <div className={s.logo}>
                 <div className={s.ava}>
                     <img src={props.profile.photos.large || pic} alt=""/>
-                    <div>{props.profile.fullName}</div>
+                    <div>{props.profile.fullName}
+                        <ProfileStatus status={'Hello my friends!'}/>
+                    </div>
                 </div>
                 <div className={s.descriptionBlock}>
                     <div>
