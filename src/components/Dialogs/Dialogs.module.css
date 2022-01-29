@@ -31,12 +31,9 @@ button {
     font-family: cursive;
     border-radius: 10px;
 }
-.text {
+div.text {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 20px;
-}
-textarea {
-    width: 85%;
-    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }

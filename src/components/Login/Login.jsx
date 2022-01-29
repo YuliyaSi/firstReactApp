@@ -1,17 +1,35 @@
 import React from "react";
+// import s from "./Login.module.css"
 import {Field, reduxForm} from "redux-form";
+import {Input} from "../common/FormsControls/FormsControls";
+import {required} from "../../utils/validators/validators";
 
 const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field name={'login'} type={"text"} placeholder={'Login'} component={'input'}/>
+                <Field name={'login'}
+                       type={"email"}
+                       placeholder={'Email'}
+                       component={Input}
+                       validate={[required]}
+                />
             </div>
             <div>
-                <Field name={'password'} type={"password"} placeholder={'Password'} component={'input'}/>
+                <Field name={'password'}
+                       type={"password"}
+                       placeholder={'Password'}
+                       component={Input}
+                       validate={[required]}
+                />
             </div>
             <div>
-                <Field name={'rememberMe'} type={"checkbox"} component={'input'}/> remember me
+                <Field name={'rememberMe'}
+                       type={"checkbox"}
+                       component={Input}
+                       validate={[required]}
+                />
+                <span>remember me</span>
             </div>
             <div>
                 <button>Login</button>
@@ -30,9 +48,14 @@ const Login = () => {
         console.log(formData)
     }
   return (
-      <div>
-          <h1>LOGIN</h1>
-          <LoginReduxForm onSubmit={onSubmit}/>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+              <h1>LOGIN</h1>
+          </div>
+          <div>
+              <LoginReduxForm onSubmit={onSubmit}/>
+          </div>
+
       </div>
   )
 };

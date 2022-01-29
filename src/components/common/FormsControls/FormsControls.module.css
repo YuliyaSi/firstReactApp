@@ -1,0 +1,28 @@
+.formControl>textarea {
+    width: 900px;
+    border-radius: 10px;
+}
+.formControl>input {
+    width: 900px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+}
+input[type='checkbox'] {
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    height: 25px;
+}
+.error>input {
+    border: 2px solid #ff0000;
+}
+.error>textarea {
+    border: 2px solid #ff0000;
+}
+.span {
+    color: #ff0000;
+    text-decoration: none;
+}

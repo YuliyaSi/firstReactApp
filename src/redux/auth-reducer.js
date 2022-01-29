@@ -37,6 +37,15 @@ export const setAuth = () => {
             }
         });
     }
-}
+};
+// export const authUser = (email, password, rememberMe, captcha) => {
+//     return (dispatch) => {
+//         authApi.logIn({email, password, rememberMe, captcha}).then(data => {
+//             if(data.resultCode === 0) {
+//
+//             }
+//         })
+//     }
+// }
 
 export default authReducer;
