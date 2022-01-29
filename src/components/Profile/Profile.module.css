@@ -22,6 +22,7 @@ div.status {
     margin: 10px 0 0 0;
 }
 .span {
+    user-select: none;
     text-decoration: none;
     text-transform: none;
     padding: 5px;

@@ -1,7 +1,6 @@
 import {profileApi} from "../api/api";
 
 const ADD_POST = 'ADD-POST',
-    UPDATE_POST = 'UPDATE-POST',
     SET_USER_PROFILE = 'SET-USER-PROFILE',
     SET_STATUS = 'SET-STATUS';
 
@@ -12,7 +11,6 @@ let initialState = {
     {id: 3, message: 'Bla-bla-bla', likesCount: 10},
     {id: 4, message: 'It\'s my second post', likesCount: 13}
   ],
-  newPostText: '',
   profile: null,
   status: ''
 };
@@ -23,15 +21,8 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST:
       return {
         ...state,
-        newPostText: '',
-        postsData: [{ id: 5, message: state.newPostText, likesCount: 0 },
+        postsData: [{ id: 5, message: action.newPostText, likesCount: 0 },
         ...state.postsData]
-      };
-
-    case UPDATE_POST:
-      return {
-        ...state,
-        newPostText: action.newText
       };
 
     case SET_USER_PROFILE:
@@ -50,9 +41,8 @@ const profileReducer = (state = initialState, action) => {
   }
 }
 
-export const addPostActionCreator = () => ( {type: ADD_POST} )
+export const addPostActionCreator = (newPostText) => ( {type: ADD_POST, newPostText} )
 export const setUserProfile = (profile) => ( {type: SET_USER_PROFILE, profile} )
-export const updatePostActionCreator = (text) => ({type: UPDATE_POST, newText: text} )
 export const setStatus = (status) => ({ type: SET_STATUS, status } )
 
 // thunk creators
