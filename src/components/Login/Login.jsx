@@ -1,18 +1,24 @@
 import React from "react";
 // import s from "./Login.module.css"
-import {Field, reduxForm} from "redux-form";
+import { Form, Field } from 'react-final-form'
 import {Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
 
-const LoginForm = (props) => {
+const LoginForm = () => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <Form
+            onSubmit = {formData => {
+        console.log(formData)
+            }}
+        >
+            {({handleSubmit, form, pristine, submitting}) => (
+        <form onSubmit={handleSubmit}>
             <div>
                 <Field name={'login'}
                        type={"email"}
                        placeholder={'Email'}
                        component={Input}
-                       validate={[required]}
+                       validate={required}
                 />
             </div>
             <div>
@@ -20,28 +26,26 @@ const LoginForm = (props) => {
                        type={"password"}
                        placeholder={'Password'}
                        component={Input}
-                       validate={[required]}
+                       validate={required}
                 />
             </div>
             <div>
                 <Field name={'rememberMe'}
                        type={"checkbox"}
                        component={Input}
-                       validate={[required]}
+                       validate={required}
                 />
                 <span>remember me</span>
             </div>
             <div>
-                <button>Login</button>
+                <button disabled={submitting}>Login</button>
+                <button onClick={form.reset} disabled={pristine || submitting}>Clear Values</button>
             </div>
         </form>
+            )}
+        </Form>
     )
 };
-
-const LoginReduxForm = reduxForm({
-    // a unique name for the form
-    form: 'login'
-})(LoginForm)
 
 const Login = () => {
     const onSubmit = (formData) => {
@@ -53,7 +57,7 @@ const Login = () => {
               <h1>LOGIN</h1>
           </div>
           <div>
-              <LoginReduxForm onSubmit={onSubmit}/>
+              <LoginForm onSubmit={onSubmit}/>
           </div>
 
       </div>

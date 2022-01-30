@@ -4,16 +4,10 @@ import styles from "./FormsControls.module.css"
 export const FormControl = ({input, meta, child, ...props}) => {
     const hasError = meta.touched && meta.error;
     return (
-        <div>
             <div className={styles.formControl + ' ' + ( hasError ? styles.error : '' )}>
                 {props.children}
+                {meta.touched && meta.error && <span className={styles.span}>{meta.error}</span>}
             </div>
-            {hasError && (
-                <div>
-                    <span className={styles.span}>{meta.error}</span>
-                </div>
-            )}
-        </div>
     )
 };
 

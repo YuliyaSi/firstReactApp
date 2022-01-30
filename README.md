@@ -9,3 +9,7 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 API - [https://social-network.samuraijs.com/]() ### `Samurai API`
+
+Dependencies were used:
+* redux-form => redux-final-form
+* 

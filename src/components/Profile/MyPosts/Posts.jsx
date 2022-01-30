@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Posts.module.css"
 import Post from "./Post/Post";
-import {Field, reduxForm} from "redux-form";
+import {Field, Form} from "react-final-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {TextArea} from "../../common/FormsControls/FormsControls";
 
@@ -17,7 +17,7 @@ const Posts = (props) => {
         <div className={s.postsBlock}>
             <h3>My Posts</h3>
             <div>
-                <AddPostFormRedux onSubmit={newPost}/>
+                <AddPostForm onSubmit={newPost}/>
             </div>
             <div className={s.posts}>
                 {postsElements}
@@ -26,20 +26,24 @@ const Posts = (props) => {
     )
 }
 
-const maxLength300 = maxLengthCreator(300)
+const maxLength300 = maxLengthCreator(300);
+const composeValidators = (...validators) => value =>
+    validators.reduce((error, validator) => error || validator(value), undefined)
 
 const AddPostForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
-            <Field component={TextArea} placeholder={'Add new post..'} name={'newPostText'}
-                   validate={[required, maxLength300]}/>
-            <div>
-                <button>Add post</button>
-            </div>
-        </form>
+        <Form onSubmit={props.onSubmit}>
+            {({handleSubmit, submitting}) => (
+                <form onSubmit={handleSubmit}>
+                    <Field component={TextArea} placeholder={'Add new post..'} name={'newPostText'}
+                           validate={composeValidators(required, maxLength300)}/>
+                    <div>
+                        <button disabled={submitting}>Add post</button>
+                    </div>
+                </form>
+            )}
+        </Form>
     )
 };
-
-const AddPostFormRedux = reduxForm({form: 'postsAddPostForm'})(AddPostForm)
 
 export default Posts;
