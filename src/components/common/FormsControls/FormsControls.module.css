@@ -10,11 +10,12 @@
     align-items: center;
     height: 25px;
 }
-input[type='checkbox'] {
+.formControl>input[type='checkbox'] {
     border-radius: 10px;
     display: flex;
     justify-content: flex-start;
     height: 25px;
+    width: 20px;
 }
 .error>input {
     border: 2px solid #ff0000;

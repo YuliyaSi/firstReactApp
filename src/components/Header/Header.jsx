@@ -22,11 +22,12 @@ const Header = (props) => {
             <div>Welcome to our page</div>
             <div className={s.loginBlock}>
                 {props.isAuth ?
-                    <div>
-                        {props.login}
-                        <button onClick={props.logoutUser}>Log Out</button>
+                    <div className={s.loginHolder}>
+                        <span>{props.login}</span>
+                            <button onClick={props.logoutUser}>Log Out</button>
+
                     </div> :
-                    <NavLink to={'login'}>Login:</NavLink>}
+                    <button><NavLink to={'login'}>Login</NavLink></button>}
             </div>
         </header>
     )

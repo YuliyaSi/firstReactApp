@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-// import s from "./Login.module.css"
+import s from "./Login.module.css"
 import { Form, Field } from 'react-final-form'
 import {Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
@@ -14,7 +14,7 @@ const LoginForm = (props) => {
             onSubmit ={props.onSubmit}
         >
             {({handleSubmit, form, pristine, submitting}) => (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
             <div>
                 <Field name={'email'}
                        type={"email"}
@@ -31,13 +31,13 @@ const LoginForm = (props) => {
                        validate={required}
                 />
             </div>
-            <div>
+            <div className={s.checkBox}>
                 <Field name={'rememberMe'}
                        type={"checkbox"}
                        component={Input}
                        validate={required}
                 />
-                <span>remember me</span>
+                <label>Remember me</label>
             </div>
             <div>
                 <button disabled={submitting}>Login</button>
@@ -62,11 +62,12 @@ const Login = (props) => {
     },[props.isAuth, navigate]);
 
         return (
-            <div style={{display: 'flex', flexDirection: 'column'}}>
-                <div style={{display: 'flex', justifyContent: 'center'}}>
-                    <h1>LOGIN</h1>
+            <div className={s.form_block}>
+                <div className={s.description}>
+                    <h2>Log into your account</h2>
+                    <h3>Connect with friends, family and other people you know. Share photos and videos, send messages and get updates.</h3>
                 </div>
-                <div>
+                <div className={s.form}>
                     <LoginForm onSubmit={onSubmit}/>
                 </div>
 
