@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from "./components/Navbar/Nav";
-import { Routes, Route } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import News from "./components/News";
 import Music from "./components/Music";
 import Settings from "./components/Settings";
@@ -29,7 +29,7 @@ const App = () => {
                         <Route path='/Music' element={<Music />}/>
                         <Route path='/Users' element={<UsersContainer />}/>
                         <Route path='/Settings' element={<Settings />}/>
-                        <Route path='' element={<LoginPage />}/>
+                        <Route path='/login' element={<LoginPage />}/>
                     </Routes>
                 </div>
             </div>

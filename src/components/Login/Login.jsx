@@ -1,20 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 // import s from "./Login.module.css"
 import { Form, Field } from 'react-final-form'
 import {Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
+import {connect} from "react-redux";
+import {loginUser, logoutUser} from "../../redux/auth-reducer";
+import {useNavigate} from "react-router";
 
-const LoginForm = () => {
+
+const LoginForm = (props) => {
     return (
         <Form
-            onSubmit = {formData => {
-        console.log(formData)
-            }}
+            onSubmit ={props.onSubmit}
         >
             {({handleSubmit, form, pristine, submitting}) => (
         <form onSubmit={handleSubmit}>
             <div>
-                <Field name={'login'}
+                <Field name={'email'}
                        type={"email"}
                        placeholder={'Email'}
                        component={Input}
@@ -47,23 +49,33 @@ const LoginForm = () => {
     )
 };
 
-const Login = () => {
-    const onSubmit = (formData) => {
-        console.log(formData)
-    }
-  return (
-      <div style={{display: 'flex', flexDirection: 'column'}}>
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-              <h1>LOGIN</h1>
-          </div>
-          <div>
-              <LoginForm onSubmit={onSubmit}/>
-          </div>
+const Login = (props) => {
+    const onSubmit = ({email, password, rememberMe}) => {
+        props.loginUser(email, password, rememberMe);
+    };
 
-      </div>
-  )
+    let navigate = useNavigate();
+    useEffect(() => {
+        if (props.isAuth){
+            return navigate("/profile");
+        }
+    },[props.isAuth, navigate]);
+
+        return (
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <h1>LOGIN</h1>
+                </div>
+                <div>
+                    <LoginForm onSubmit={onSubmit}/>
+                </div>
+
+            </div>
+        )
 };
 
+const mapDispatchToProps = (state) => ({
+    isAuth: state.auth.isAuth,
+})
 
-
-export default Login;
+export default connect(mapDispatchToProps, {loginUser, logoutUser})(Login);

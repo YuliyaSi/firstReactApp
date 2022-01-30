@@ -40,10 +40,10 @@ export const authApi = {
     authMe() {
         return instance.get(`auth/me`).then(response => response.data);
     },
-    logIn({ email, password, rememberMe, captcha }) {
+    logIn( email, password, rememberMe, captcha = true) {
       return instance.post(`auth/login`, {email, password, rememberMe, captcha}).then(response => response.data);
     },
     logOut() {
-        return instance.delete(`auth/login`).then(response => response.data)
+        return instance.delete(`auth/login`).then(response => response.data);
     },
 }
