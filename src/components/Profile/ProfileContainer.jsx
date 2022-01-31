@@ -1,27 +1,27 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {getStatus, showUserProfile, updateStatus} from "../../redux/profile-reducer";
 import {connect} from "react-redux";
-import {useMatch} from "react-router";
+import {useParams} from "react-router";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
-class ProfileContainer extends React.Component {
+const ProfileContainer = (props) => {
+    let userId = props.userId || '';
+    if(!userId) userId = props.profileId;
 
-    componentDidMount() {
-        let userId = this.props.match ? this.props.match.params.userId : this.props.profileId;
-        this.props.showUserProfile(userId);
-        this.props.getStatus(userId);
-    }
+    useEffect(() => {
+        props.showUserProfile(userId);
+        props.getStatus(userId);
+    }, [props.userId])
 
-    render() {
-        return <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus}/>
-    }
+
+    return <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
 }
 
 const ProfileUrlMatch = (props) => {
-    const match = useMatch('/profile/:userId/');
-    return <ProfileContainer {...props} match={match}/>
+    const { userId } = useParams()
+    return <ProfileContainer {...props} userId={userId} />
 }
 
 let mapStateToProps = (state) => ({
