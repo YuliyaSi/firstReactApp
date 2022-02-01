@@ -8,7 +8,6 @@ let initialState = {
     login: null,
     isAuth: false,
     error: ''
-    // isFetching: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -32,7 +31,7 @@ export const setAuthUserData = (id, email, login, isAuth, error) => ({type: SET_
 // thunk creator
 export const setAuth = () => {
     return (dispatch) => {
-        authApi.authMe().then(data => {
+       return authApi.authMe().then(data => {
             if(data.resultCode === 0) {
                 let {id, email, login} = data.data;
                 dispatch(setAuthUserData(id, email, login, true, ''));
