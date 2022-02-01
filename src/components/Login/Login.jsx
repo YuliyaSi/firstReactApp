@@ -12,6 +12,7 @@ const LoginForm = (props) => {
     return (
         <Form
             onSubmit ={props.onSubmit}
+            name={'form'}
         >
             {({handleSubmit, form, pristine, submitting}) => (
         <form onSubmit={handleSubmit} >
@@ -39,6 +40,7 @@ const LoginForm = (props) => {
                 />
                 <label>Remember me</label>
             </div>
+            {props.error && <div className={s.error}>{props.error}</div>}
             <div>
                 <button disabled={submitting}>Login</button>
                 <button onClick={form.reset} disabled={pristine || submitting}>Clear Values</button>
@@ -68,7 +70,7 @@ const Login = (props) => {
                     <h3>Connect with friends, family and other people you know. Share photos and videos, send messages and get updates.</h3>
                 </div>
                 <div className={s.form}>
-                    <LoginForm onSubmit={onSubmit}/>
+                    <LoginForm onSubmit={onSubmit} error={props.error}/>
                 </div>
 
             </div>
@@ -77,6 +79,7 @@ const Login = (props) => {
 
 const mapDispatchToProps = (state) => ({
     isAuth: state.auth.isAuth,
+    error: state.auth.error
 })
 
 export default connect(mapDispatchToProps, {loginUser, logoutUser})(Login);

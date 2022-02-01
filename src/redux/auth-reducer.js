@@ -7,6 +7,7 @@ let initialState = {
     email: null,
     login: null,
     isAuth: false,
+    error: ''
     // isFetching: false,
 };
 
@@ -18,6 +19,7 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 ...action.payload,
                 isAuth: action.payload.isAuth,
+                error: action.error,
             };
 
         default:
@@ -25,15 +27,15 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserData = (id, email, login, isAuth) => ({type: SET_USER_DATA, payload: {id, email, login, isAuth}});
+export const setAuthUserData = (id, email, login, isAuth, error) => ({type: SET_USER_DATA, payload: {id, email, login, isAuth}, error});
+
 // thunk creator
 export const setAuth = () => {
     return (dispatch) => {
         authApi.authMe().then(data => {
             if(data.resultCode === 0) {
                 let {id, email, login} = data.data;
-                dispatch(setAuthUserData(id, email, login, true));
-
+                dispatch(setAuthUserData(id, email, login, true, ''));
             }
         });
     }
@@ -43,6 +45,9 @@ export const loginUser = (email, password, rememberMe) => {
         authApi.logIn(email, password, rememberMe).then(data => {
             if(data.resultCode === 0) {
                 dispatch(setAuth())
+            } else {
+                let message = data.messages[0] || 'Login failed';
+              dispatch(setAuthUserData(null, null, null, false, message))
             }
         })
     }
@@ -51,7 +56,7 @@ export const logoutUser = () => {
     return (dispatch) => {
         authApi.logOut().then(data => {
             if(data.resultCode === 0) {
-                dispatch(setAuthUserData(null, null, null, false))
+                dispatch(setAuthUserData(null, null, null, false, ''))
             }
         })
     }
