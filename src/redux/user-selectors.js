@@ -1,6 +1,20 @@
+// import {createSelector} from "reselect";
+
+// primitive selector
 export const getAllUsers = (state) => {
   return state.usersPage.users;
 };
+
+// common selector
+// export const getAllUsersSelector = (state) => {
+//   return getAllUsers(state).filter(u => u == true);
+// };
+
+
+// selector from reselect library
+// export const getUserSuperSelector = createSelector(getAllUsers, (users) => {
+//   return users.filter(u => true);
+// })
 
 export const getPageSize = (state) => {
   return state.usersPage.pageSize;
