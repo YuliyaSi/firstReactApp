@@ -36,7 +36,6 @@ const LoginForm = (props) => {
                 <Field name={'rememberMe'}
                        type={"checkbox"}
                        component={Input}
-                       validate={required}
                 />
                 <label>Remember me</label>
             </div>
@@ -52,15 +51,13 @@ const LoginForm = (props) => {
 };
 
 const Login = (props) => {
+    let navigate = useNavigate();
     const onSubmit = ({email, password, rememberMe}) => {
         props.loginUser(email, password, rememberMe);
     };
 
-    let navigate = useNavigate();
     useEffect(() => {
-        if (props.isAuth){
-            return navigate("/profile");
-        }
+        if (props.isAuth) navigate('/profile');
     },[props.isAuth, navigate]);
 
         return (
