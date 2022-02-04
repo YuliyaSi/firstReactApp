@@ -5,11 +5,13 @@ import {Field, Form} from "react-final-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {TextArea} from "../../common/FormsControls/FormsControls";
 
-const Posts = (props) => {
-    let postsElements = props.postsData.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
+const Posts = props => {
+    console.log('render')
+    let postsElements = props.postsData.map(p => <Post key={p.id} message={p.message}
+                                                       likesCount={p.likesCount}/>)
 
     const newPost = (values) => {
-        if(values.newPostText) props.addPost(values.newPostText);
+        if (values.newPostText) props.addPost(values.newPostText);
         values.newPostText = '';
     }
 
@@ -24,7 +26,7 @@ const Posts = (props) => {
             </div>
         </div>
     )
-}
+};
 
 const maxLength300 = maxLengthCreator(300);
 const composeValidators = (...validators) => value =>
