@@ -6,7 +6,7 @@ import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {TextArea} from "../../common/FormsControls/FormsControls";
 
 const Posts = (props) => {
-    let postsElements = props.postsData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+    let postsElements = props.postsData.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
 
     const newPost = (values) => {
         if(values.newPostText) props.addPost(values.newPostText);

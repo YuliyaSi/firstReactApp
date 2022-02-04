@@ -15,7 +15,7 @@ let Users = (props) => {
         <div className={s.users}>
             <div className={s.pagination}>
 
-                {pages.map(p => <div onClick={ () => props.onPageChanged(p) }
+                {pages.map(p => <div key={p} onClick={ () => props.onPageChanged(p) }
                                      className={props.currentPage === p ? s.selectedPage : s.page}>
                     {p}
 
