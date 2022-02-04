@@ -13,7 +13,7 @@ const ProfileContainer = (props) => {
     useEffect(() => {
         props.showUserProfile(userId);
         props.getStatus(userId);
-    }, [props.userId])
+    }, [props, userId])
 
 
     return <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
