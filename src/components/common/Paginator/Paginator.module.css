@@ -1,0 +1,22 @@
+.selectedPage {
+    background-color: gold;
+}
+.page {
+    background-color: #07575B;
+}
+.page, .selectedPage {
+    color: #FFFFFF;
+    width: 25px;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-left: 3px;
+    display: flex;
+    justify-content: center;
+}
+.pagination {
+    display: flex;
+    flex-direction: row;
+}
+.pagination:hover {
+    cursor: pointer;
+}

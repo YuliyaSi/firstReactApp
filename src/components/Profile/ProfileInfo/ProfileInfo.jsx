@@ -5,9 +5,9 @@ import pic from "../../../assets/images/168732.png"
 import ProfileStatus from "../ProfileStatus";
 
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({profile, status,updateStatus}) => {
 
-    if(!props.profile) {
+    if(!profile) {
         return <Preloader />
     }
 
@@ -20,27 +20,27 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.logo}>
                 <div className={s.ava}>
-                    <img src={props.profile.photos.large || pic} alt=""/>
-                    <div>{props.profile.fullName}
-                        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                    <img src={profile.photos.large || pic} alt=""/>
+                    <div>{profile.fullName}
+                        <ProfileStatus status={status} updateStatus={updateStatus}/>
                     </div>
                 </div>
                 <div className={s.descriptionBlock}>
                     <div>
-                        <p>About me: {props.profile.aboutMe}</p>
-                        <p>Looking for a job: {props.profile.lookingForAJob ? ' Yes ' : ' No '}</p>
-                        <p>Job description: {props.profile.lookingForAJobDescription}</p>
+                        <p>About me: {profile.aboutMe}</p>
+                        <p>Looking for a job: {profile.lookingForAJob ? ' Yes ' : ' No '}</p>
+                        <p>Job description: {profile.lookingForAJobDescription}</p>
                     </div>
                     <div>
                         Contacts:<br/>
-                        <span>{props.profile.contacts.facebook || ' - '}</span><br/>
-                        <span>{props.profile.contacts.website || ' - '}</span><br/>
-                        <span>{props.profile.contacts.vk || ' - '}</span><br/>
-                        <span>{props.profile.contacts.twitter || ' - '}</span><br/>
-                        <span>{props.profile.contacts.instagram || ' - '}</span><br/>
-                        <span>{props.profile.contacts.youtube || ' - '}</span><br/>
-                        <span>{props.profile.contacts.github || ' - '}</span><br/>
-                        <span>{props.profile.contacts.mainLink || ' - '}</span>
+                        <span>{profile.contacts.facebook || ' - '}</span><br/>
+                        <span>{profile.contacts.website || ' - '}</span><br/>
+                        <span>{profile.contacts.vk || ' - '}</span><br/>
+                        <span>{profile.contacts.twitter || ' - '}</span><br/>
+                        <span>{profile.contacts.instagram || ' - '}</span><br/>
+                        <span>{profile.contacts.youtube || ' - '}</span><br/>
+                        <span>{profile.contacts.github || ' - '}</span><br/>
+                        <span>{profile.contacts.mainLink || ' - '}</span>
                     </div>
                 </div>
             </div>

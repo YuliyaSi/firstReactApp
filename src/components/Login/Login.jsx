@@ -1,45 +1,32 @@
 import React, {useEffect} from "react";
 import s from "./Login.module.css"
-import { Form, Field } from 'react-final-form'
-import {Input} from "../common/FormsControls/FormsControls";
+import { Form } from 'react-final-form'
+import {fieldCreator, Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {loginUser, logoutUser} from "../../redux/auth-reducer";
 import {useNavigate} from "react-router";
 
 
-const LoginForm = (props) => {
+const LoginForm = ({onSubmit, error}) => {
     return (
         <Form
-            onSubmit ={props.onSubmit}
+            onSubmit ={onSubmit}
             name={'form'}
         >
             {({handleSubmit, form, pristine, submitting}) => (
         <form onSubmit={handleSubmit} >
             <div>
-                <Field name={'email'}
-                       type={"email"}
-                       placeholder={'Email'}
-                       component={Input}
-                       validate={required}
-                />
+                {fieldCreator("email", "email", "Email", Input, required)}
             </div>
             <div>
-                <Field name={'password'}
-                       type={"password"}
-                       placeholder={'Password'}
-                       component={Input}
-                       validate={required}
-                />
+                {fieldCreator("password", "password", "Password", Input, required)}
             </div>
             <div className={s.checkBox}>
-                <Field name={'rememberMe'}
-                       type={"checkbox"}
-                       component={Input}
-                />
+                {fieldCreator("rememberMe", "checkbox", null, Input, null)}
                 <label>Remember me</label>
             </div>
-            {props.error && <div className={s.error}>{props.error}</div>}
+            {error && <div className={s.error}>{error}</div>}
             <div>
                 <button disabled={submitting}>Login</button>
                 <button onClick={form.reset} disabled={pristine || submitting}>Clear Values</button>

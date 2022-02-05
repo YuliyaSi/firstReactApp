@@ -7,13 +7,12 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
 const ProfileContainer = (props) => {
-    let userId = props.userId || '';
-    if(!userId) userId = props.profileId;
+    let userId = props.userId || props.profileId;
 
     useEffect(() => {
         props.showUserProfile(userId);
         props.getStatus(userId);
-    }, [props, userId])
+    }, [props.userId])
 
 
     return <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
