@@ -2,21 +2,32 @@
     background-color: gold;
 }
 .page {
-    background-color: #07575B;
+    background-color: #66A5AD;
 }
 .page, .selectedPage {
     color: #FFFFFF;
-    width: 25px;
+    width: 35px;
     font-size: 15px;
     border-radius: 5px;
     margin-left: 3px;
     display: flex;
     justify-content: center;
+    height: 25px;
+    text-decoration: none;
 }
 .pagination {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
 }
 .pagination:hover {
     cursor: pointer;
+}
+.pagination button {
+    width: 50px;
+    padding: 0;
+    font-size: 15px;
+    height: 25px;
+    margin: 5px;
 }

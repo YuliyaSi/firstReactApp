@@ -58,6 +58,7 @@ const mapStateToProps = (state) => {
 }
 
 let AppContainer =  connect(mapStateToProps, {initializeApp})(App);
+// because start test was failed, App needs to be clean
 export const SamuraiJSApp = () => {
     return (
         <BrowserRouter>
