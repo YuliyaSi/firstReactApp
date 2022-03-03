@@ -12,7 +12,9 @@ let Users = (props) => {
                 props.users.map(u => <User user={u}
                                            followingInProgress={props.followingInProgress}
                                            follow={props.follow}
-                                           unfollow={props.unfollow}/>)
+                                           unfollow={props.unfollow}
+                                           key={u.id}
+                />)
             }
         </div>
     )

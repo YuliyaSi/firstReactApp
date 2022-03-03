@@ -7,19 +7,18 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
 const ProfileContainer = (props) => {
-    let userId = props.userId || props.profileId;
+    const userId = props.userId || props.profileId
 
     useEffect(() => {
         props.showUserProfile(userId);
         props.getStatus(userId);
     }, [props.userId])
 
-
     return <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
 }
 
 const ProfileUrlMatch = (props) => {
-    const { userId } = useParams()
+    let { userId } = useParams();
     return <ProfileContainer {...props} userId={userId} />
 }
 
@@ -28,7 +27,6 @@ let mapStateToProps = (state) => ({
     profileId: state.auth.id,
     status: state.profilePage.status,
 });
-
 export default compose(
     connect(mapStateToProps, {showUserProfile, getStatus, updateStatus}),
     withAuthRedirect,

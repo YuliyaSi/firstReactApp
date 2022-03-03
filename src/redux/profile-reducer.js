@@ -1,5 +1,6 @@
 import {profileApi} from "../api/api";
 
+
 const ADD_POST = 'profile/ADD-POST',
     SET_USER_PROFILE = 'profile/SET-USER-PROFILE',
     SET_STATUS = 'profile/SET-STATUS', DELETE_POST = 'profile/DELETE-POST';
@@ -53,6 +54,7 @@ export const deletePost = (postId) => ({type: DELETE_POST, postId})
 
 // thunk creators
 export const showUserProfile = (userId) => async (dispatch) => {
+    console.log(userId)
     let data = await profileApi.getProfile(userId);
     dispatch(setUserProfile(data));
 }
